@@ -1,0 +1,15 @@
+<h1>Create a new list</h1>
+
+<%= form_for :list, url: lists_path do |l| %>
+  <p>
+    <%= l.label :title %><br>
+    <%= l.text_field :title %>
+  </p>
+  <p>
+    <%= l.label :description %><br>
+    <%= l.text_field :description %><br>
+  </p>
+  <p>
+    <%= l.submit %>
+  </p>
+<% end %>
