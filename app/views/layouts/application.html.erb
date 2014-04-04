@@ -7,8 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <div class="navbar-brand smaller">
+        Pantry Helper
+      </div>
+    </div>
 
-<%= yield %>
+    <div class="collapse navbar-collapse navbar-right">
+      Welcome!
+    </div>
+  </nav>
 
+  <%= yield %>
+</div>
 </body>
 </html>

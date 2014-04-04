@@ -1,0 +1,15 @@
+<h1>Edit your list:</h1>
+
+<%= form_for :list, url: list_path(@list), method: :patch do |l| %>
+  <p>
+    <%= l.label :title %><br>
+    <%= l.text_field :title %>
+  </p>
+  <p>
+    <%= l.label :description %><br>
+    <%= l.text_area :description %>
+  </p>
+  <p>
+    <%= l.submit %>
+  </p>
+<% end %>
