@@ -6,3 +6,39 @@
   <strong>Description:</strong>
   <%= @list.description %>
 </p>
+<br/><br/>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Quantity</th>
+  </tr>
+  
+  <% @list.items.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <td><%= item.description %></td>
+    <td><%= item.quantity %></td>
+  </tr>
+  <% end %>
+</table>
+
+<h2>Add an item</h2>
+<%= form_for([@list, @list.items.build]) do |i| %>
+  <p>
+    <%= i.label :name %><br/>
+    <%= i.text_field :name %>
+  </p>
+  <p>
+    <%= i.label :description %><br/>
+    <%= i.text_field :description %>
+  </p>
+  <p>
+    <%= i.label :quantity %><br/>
+    <%= i.number_field :quantity %>
+  </p>
+  <p>
+    <%= i.submit %>
+  </p>
+<% end %>
