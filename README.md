@@ -14,5 +14,5 @@
   ```
   As a user
   I want to create items
-  So that I can know how many of each item I have and add descriptions to items
+  So that I can know how many of each item I have and add those items to a list
   ```
