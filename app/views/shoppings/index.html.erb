@@ -15,16 +15,17 @@
 </p>
 
 <%= form_tag({action: :create}, multipart: true) do %>
-  <p>Select a list to gather items from:</p>
-  <%= select(:list, :list_id, @title_array) %>
-  <br/><br/>
   <table class="table-condensed">
     <tr>
-      <td>Threshold</td>
+      <td>List:</td>      
+      <td><%= select(:list, :list_id, @title_array) %></td>
+    </tr>
+    <tr>
+      <td>Threshold:</td>
       <td><input id="threshold" name="threshold" min="0" max="99" type="number" /><td>
     </tr>
     <td>
-      <%= submit_tag 'Import' %>
+      <%= submit_tag 'Generate list' %>
     </td>
   </table>
 <% end %>
