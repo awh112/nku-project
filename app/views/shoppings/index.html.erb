@@ -1,0 +1,30 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<% @list_array = List.all.to_a %>
+<% @title_array = [] %>
+<% @list_array.each { |l| @title_array.push(l.title) } %>
+
+<h1>Generate a shopping list</h1>
+<p class="lead">
+  Here, you can create a shopping list based on the threshold you set
+  below.  For example, if you want to include all items that you have
+  2 or fewer than, enter 2 in the threshold field and select the
+  appropriate list that you want to use to generate the list.
+</p>
+
+<%= form_tag({action: :create}, multipart: true) do %>
+  <p>Select a list to gather items from:</p>
+  <%= select(:list, :list_id, @title_array) %>
+  <br/><br/>
+  <table class="table-condensed">
+    <tr>
+      <td>Threshold</td>
+      <td><input id="threshold" name="threshold" min="0" max="99" type="number" /><td>
+    </tr>
+    <td>
+      <%= submit_tag 'Import' %>
+    </td>
+  </table>
+<% end %>
