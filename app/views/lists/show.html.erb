@@ -1,3 +1,7 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
 <p>
   <strong>Title:</strong>
   <%= @list.title %>
@@ -13,6 +17,7 @@
     <th>Name</th>
     <th>Description</th>
     <th>Quantity</th>
+    <th>Edit</th>
   </tr>
   
   <% @list.items.each do |item| %>
@@ -20,6 +25,7 @@
     <td><%= item.name %></td>
     <td><%= item.description %></td>
     <td><%= item.quantity %></td>
+    <td><%= link_to "Edit", @list.id.to_s + "/items/" + item.id.to_s + "/edit" %></td>
   </tr>
   <% end %>
 </table>
