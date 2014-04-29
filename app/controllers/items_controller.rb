@@ -14,12 +14,18 @@ class ItemsController < ApplicationController
     @list = List.find(params[:list_id])
     @item = @list.items.find(params[:id])
     
-    @item.name = params[:item][:name]
-    @item.description = params[:item][:description]
-    @item.quantity = params[:item][:quantity]
-    @item.save    
+    if(params[:item][:name] != nil)
+      @item.name = params[:item][:name]
+      @item.description = params[:item][:description]
+    end
     
-    flash[:success] = "You have successfully edited " + @item.name
+    @item.quantity = params[:item][:quantity]
+    @item.save
+    
+    if(params[:item][:name] != nil)
+      flash[:success] = "You have successfully edited " + @item.name
+    end
+    
     redirect_to list_path(@list)
   end
 end

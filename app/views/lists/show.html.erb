@@ -18,6 +18,8 @@
     <th>Description</th>
     <th>Quantity</th>
     <th>Edit</th>
+    <th>Add Item</th>
+    <th>Subtract Item</th>
   </tr>
   
   <% @list.items.each do |item| %>
@@ -29,7 +31,13 @@
     <td>
       <%= form_for [@list, item] do |f| %>
         <%= f.hidden_field :quantity,  value: item.quantity + 1 %>
-        <%= f.submit "Increment" %>
+        <%= f.submit "+" %>
+      <% end %>
+    </td>
+    <td>
+      <%= form_for [@list, item] do |f| %>
+        <%= f.hidden_field :quantity,  value: item.quantity - 1 %>
+        <%= f.submit "-" %>
       <% end %>
     </td>
   </tr>
