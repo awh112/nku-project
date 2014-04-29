@@ -6,11 +6,11 @@
     <th>Quantity</th>
   </tr>
   
-  <% debugger %>
   <% @low_items.each do |item| %>
   <tr>
     <td><%= item.name %></td>
     <td><%= item.quantity %></td>
+    
   </tr>
   <% end %>
 </table>
