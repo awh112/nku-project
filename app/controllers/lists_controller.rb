@@ -9,6 +9,25 @@ class ListsController < ApplicationController
   end
   
   def index
+    low_items = Item.where("quantity < ?", 5)
+    low_ids = low_items.select(:list_id).distinct
+    
+    
+    low_lists = "";
+    low_ids.each do |low_id|
+      if(low_id != nil)
+        if(List.find_by_id(low_id.list_id) != nil)
+          low_lists << List.find(low_id.list_id).title
+          low_lists << ", "
+        end
+      end
+    end
+    low_lists.chomp(", ")
+    
+    if(low_lists != "")
+      flash[:success] = "You may be low on items in the following lists: " + low_lists.chomp(", ")
+    end
+    
     @lists = List.all
   end
   

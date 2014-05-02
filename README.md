@@ -33,3 +33,21 @@
   I want to edit my list items
   So that I can update how many of them I have
   ```
+  
+##Week 3 - 5/2/14
+
+* Add the functionality to increment and decrement an item in a list with the push of a button as well ass add additional notifications.
+  * A user can click increment or decrement on an item to increase or decrease the quantity of that item by 1.
+  ```
+  As a user
+  I want to quickly change the quantity of an item in my list
+  So that I don't have to enter the edit page
+  ```
+  
+  * A user receives notifications on the home page to warn them about potentially low items in their lists.
+  ```
+  As a user
+  I want to receive a notification
+  So that I am aware when I am low on items
+  ```
+
